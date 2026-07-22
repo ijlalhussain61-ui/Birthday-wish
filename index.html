@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Birthday Surprise 🎉</title>
+    <style>
+        body {
+            background-color: #ffe6ea;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            width: 80%;
+            max-width: 350px;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 15px 0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        button {
+            background-color: #ff3366;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .cake {
+            font-size: 80px;
+            margin: 20px 0;
+            transition: transform 0.5s;
+        }
+
+        .cake.cut {
+            transform: scale(1.2) rotate(10deg);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- PASSWORD SCREEN -->
+    <div id="password-screen" class="card">
+        <h2>Enter Secret Password 🔒</h2>
+        <p>Aapko bheja gaya password yahan likhein:</p>
+        <input type="password" id="passInput" placeholder="Password daalein...">
+        <button onclick="checkPassword()">Unlock Surprise</button>
+        <p id="error-msg" style="color:red; display:none; margin-top:10px;">Ghalat Password! Dobara try karein.</p>
+    </div>
+
+    <!-- MAIN BIRTHDAY CARD -->
+    <div id="birthday-card" class="card" style="display: none;">
+        <h2>Cut the Birthday Cake 🎂</h2>
+        <p>Tap the button and cut the cake with love.</p>
+        <div class="cake" id="cake">🎂</div>
+        <button onclick="cutCake()">Cut the Cake</button>
+    </div>
+
+    <script>
+        function checkPassword() {
+            let userPass = document.getElementById("passInput").value;
+            let correctPassword = "1234"; // Yahan apna password rakhein
+
+            if (userPass === correctPassword) {
+                document.getElementById("password-screen").style.display = "none";
+                document.getElementById("birthday-card").style.display = "block";
+            } else {
+                document.getElementById("error-msg").style.display = "block";
+            }
+        }
+
+        function cutCake() {
+            document.getElementById("cake").classList.add("cut");
+            alert("Cake Cut Ho Gaya! 🎉 Happy Birthday!");
+        }
+    </script>
+</body>
+</html>
